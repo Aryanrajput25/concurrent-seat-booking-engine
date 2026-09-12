@@ -1,0 +1,33 @@
+# Every value below can be overridden with an environment variable at
+# deploy time (see compose.yaml), so the same jar runs locally and in Docker
+# without any code changes.
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/seat_booking?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+
+  jpa:
+    hibernate:
+      # Schema is owned by Flyway migrations, not Hibernate. "validate" makes
+      # Hibernate check the entity mappings against the real schema on
+      # startup and fail fast if they ever drift apart.
+      ddl-auto: validate
+    open-in-view: false
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+
+booking:
+  # How long a seat hold (and its matching Redis lock) stays valid before
+  # it's eligible to be expired by the background sweep.
+  lock-timeout-seconds: ${LOCK_TIMEOUT_SECONDS:300}
+
+  # A booking is expired once its payment-failure count exceeds this value.
+  allowed-payment-failures: ${ALLOWED_PAYMENT_FAILURES:2}
+
+  # How often the background job checks for stale pending bookings to expire.
+  expiration-sweep-seconds: ${EXPIRATION_SWEEP_SECONDS:15}
