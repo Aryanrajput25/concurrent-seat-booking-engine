@@ -35,7 +35,8 @@ import java.time.Instant;
                 columnNames = {"show_id", "seat_id"}
         )
 )
-public class ShowSeatReservation {
+public class ShowSeatReservation { //this is a representation of the seat's reservation for a particular show.
+                                   //A physical seat can be BOOKED for one show and AVAILABLE for another, so we need to represent a seat reservation for a particular show.
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

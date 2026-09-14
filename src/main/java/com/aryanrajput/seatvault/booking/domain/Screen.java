@@ -12,7 +12,7 @@ import jakarta.persistence.ManyToOne;
  * {@link Seat}s and hosts a schedule of {@link Show}s over time.
  */
 @Entity
-public class Screen {
+public class Screen { //Represents an individual screen inside a theatre. eg-screen 1. A screen has seats.
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

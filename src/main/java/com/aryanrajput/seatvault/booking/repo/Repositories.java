@@ -20,8 +20,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * All Spring Data JPA repositories for the booking domain, grouped in one
- * file since each interface is only a few lines. Repositories that need to
+ * Repositories that need to
  * take part in the concurrency-control scheme expose a {@code lockById} or
  * {@code lockAll} method that acquires a {@code SELECT ... FOR UPDATE} row
  * lock via {@link Lock @Lock(PESSIMISTIC_WRITE)} — see
@@ -29,7 +28,7 @@ import java.util.Optional;
  * {@link com.aryanrajput.seatvault.booking.service.ShowService} for how those locks
  * are used to make state transitions safe under concurrent access.
  */
-public final class Repositories {
+public final class Repositories { //Repository classes are responsible for communicating with the database through Spring Data JPA.
 
     private Repositories() {
         // namespace only — not instantiable

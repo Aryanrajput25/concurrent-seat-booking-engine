@@ -28,7 +28,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "bookings")
-public class Booking {
+public class Booking { //This represents the actual booking.
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

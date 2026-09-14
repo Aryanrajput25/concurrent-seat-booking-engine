@@ -12,7 +12,7 @@ package com.aryanrajput.seatvault.booking.domain;
  * PENDING is the only state from which a booking can still change; the other
  * three are terminal.
  */
-public enum BookingStatus {
+public enum BookingStatus { //This represents the booking lifecycle.
     PENDING,
     CONFIRMED,
     EXPIRED,

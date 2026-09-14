@@ -11,7 +11,7 @@ package com.aryanrajput.seatvault.booking.domain;
  *   <li>{@code CONFIRMED} — payment succeeded; permanently unavailable.</li>
  * </ul>
  */
-public enum ReservationState {
+public enum ReservationState { //This represents the state of a reservation.
     AVAILABLE,
     HELD,
     CONFIRMED

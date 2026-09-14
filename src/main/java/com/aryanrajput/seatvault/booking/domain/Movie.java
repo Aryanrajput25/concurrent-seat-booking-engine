@@ -10,7 +10,7 @@ import jakarta.persistence.Column;
  * A movie that can be scheduled for one or more {@link Show}s.
  */
 @Entity
-public class Movie {
+public class Movie { //Represents the movie.
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

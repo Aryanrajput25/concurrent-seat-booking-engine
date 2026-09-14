@@ -19,7 +19,7 @@ import java.time.Instant;
  */
 @Entity(name = "MovieShow")
 @Table(name = "shows")
-public class Show {
+public class Show { //A Show represents a particular movie playing at a particular time/screen. eg-Movie: Interstellar, Screen: Screen 1, Time: 6:00 PM
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
