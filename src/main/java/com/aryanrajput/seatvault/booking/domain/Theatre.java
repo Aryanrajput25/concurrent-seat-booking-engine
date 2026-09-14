@@ -10,7 +10,7 @@ import jakarta.persistence.Column;
  * A physical cinema location. A theatre owns one or more {@link Screen}s.
  */
 @Entity
-public class Theatre {
+public class Theatre { //for eg-pvr ,It can contain screens.
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

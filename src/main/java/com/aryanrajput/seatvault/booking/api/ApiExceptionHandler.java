@@ -16,12 +16,11 @@ import java.util.NoSuchElementException;
  *   NoSuchElementException            -&gt; 404 Not Found
  *   IllegalArgumentException          -&gt; 400 Bad Request   (invalid input)
  *   SecurityException                 -&gt; 400 Bad Request   (wrong owner)
- *   IllegalStateException             -&gt; 409 Conflict      (seat unavailable,
- *                                                            hold expired, etc.)
+ *   IllegalStateException             -&gt; 409 Conflict      (seat unavailable, hold expired, etc.)
  * </pre>
  */
 @RestControllerAdvice
-public class ApiExceptionHandler {
+public class ApiExceptionHandler { //This handles exceptions thrown by the application and converts them into proper HTTP responses.
 
     @ExceptionHandler(NoSuchElementException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)

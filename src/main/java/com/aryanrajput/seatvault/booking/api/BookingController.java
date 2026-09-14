@@ -49,9 +49,11 @@ import java.util.stream.Collectors;
  * {@link BookingService} and {@link ShowService}; this class is deliberately
  * thin.
  */
+// BookingController exposes the REST endpoints related to booking operations. It receives HTTP requests, maps request data into DTOs,
+// delegates the actual business logic to BookingService, and returns the appropriate HTTP response.
 @RestController
 @RequestMapping("/api")
-public class BookingController {
+public class BookingController { //the first entry point of the project after initialisation. The controller handles HTTP requests related to bookings.
 
     private final Theatres theatres;
     private final Screens screens;
