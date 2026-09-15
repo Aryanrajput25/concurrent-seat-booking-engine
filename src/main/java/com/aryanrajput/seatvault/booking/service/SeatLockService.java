@@ -21,7 +21,7 @@ import java.util.List;
  * request reach the database, where it will be correctly rejected.
  */
 @Service
-public class SeatLockService {
+public class SeatLockService { //This is where the Redis locking logic lives.
 
     /**
      * Locks every key in {@code KEYS} only if none of them are already held.

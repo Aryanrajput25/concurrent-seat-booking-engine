@@ -20,7 +20,7 @@ import java.util.NoSuchElementException;
  * rows.
  */
 @Service
-public class ShowService {
+public class ShowService { //This handles show-related business operations.
 
     private final Shows shows;
     private final Movies movies;

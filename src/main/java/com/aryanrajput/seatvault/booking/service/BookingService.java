@@ -79,12 +79,16 @@ public class BookingService {
      *         (empty, duplicated, or not all on the show's screen)
      * @throws IllegalStateException if any seat is currently unavailable
      */
+
+    //@Transactional ensures that the critical database operations performed by the booking workflow execute within a transaction.
+    // This allows the application to maintain atomicity and use database-level locking consistently.
+    // If the transaction fails, the database changes can be rolled back rather than leaving partial state.
     @Transactional
     public Booking create(String userId, Long showId, List<Long> seatIds) {
         validateSeatSelection(seatIds);
 
-        Show show = find(shows, showId, "Show");
-        List<Seat> selectedSeats = seats.findAllById(seatIds);
+        Show show = find(shows, showId, "Show"); //The service retrieves the show from MySQL. This Finds the show
+        List<Seat> selectedSeats = seats.findAllById(seatIds); //this Finds the requested seats
         validateSeatsBelongToShow(show, selectedSeats, seatIds);
 
         // saveAndFlush so the generated booking id is available immediately —
@@ -246,7 +250,7 @@ public class BookingService {
         return booking.getSeats().stream().map(Seat::getId).sorted().toList();
     }
 
-    private void validateSeatSelection(List<Long> seatIds) {
+    private void validateSeatSelection(List<Long> seatIds) { //it checks- Is the list empty?, Are there duplicate seat IDs?
         boolean empty = seatIds == null || seatIds.isEmpty();
         boolean hasDuplicates = seatIds != null && new HashSet<>(seatIds).size() != seatIds.size();
         if (empty || hasDuplicates) {

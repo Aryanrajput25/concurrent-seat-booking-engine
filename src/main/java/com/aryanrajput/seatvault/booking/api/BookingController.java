@@ -157,7 +157,7 @@ public class BookingController { //the first entry point of the project after in
     // Bookings and payments
     // ------------------------------------------------------------------
 
-    @PostMapping("/bookings")
+    @PostMapping("/bookings") //when a client requests for booking a seat, thats where it points firsts.It delegates to BookingService
     @ResponseStatus(HttpStatus.CREATED)
     public BookingResponse createBooking(@Valid @RequestBody CreateBookingRequest request) {
         Booking booking = bookingService.create(request.userId(), request.showId(), request.seatIds());

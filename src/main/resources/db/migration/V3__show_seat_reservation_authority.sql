@@ -3,6 +3,7 @@
 -- is what actually decides who owns a seat — Redis is only a fast,
 -- short-lived pre-check in front of it.
 
+-- this Adds reservation authority changes. it is used for-Strengthening the authoritative reservation model.
 CREATE TABLE show_seat_reservations (
     id         BIGINT AUTO_INCREMENT PRIMARY KEY,
     show_id    BIGINT NOT NULL,

@@ -1,4 +1,5 @@
 -- Venue hierarchy: theatre -> screen -> seat.
+-- this Creates initial database structure
 
 CREATE TABLE theatre (
     id   BIGINT AUTO_INCREMENT PRIMARY KEY,
